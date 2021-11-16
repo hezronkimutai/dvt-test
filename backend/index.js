@@ -1,19 +1,55 @@
+require("dotenv").config();
+
 const express = require('express');
-const request = require('request');
+const bodyParser = require('body-parser');
+const cors = require("cors");
+const axios = require('axios');
 
 const app = express();
+const port = process.env.PORT || 8080;
 
-app.get('/', (req, res, next) => {
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/json" }));
 
-    request('https://api.deezer.com/user/2529', function (error, response, body) {
-        console.error('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the HTML for the Google homepage.
-    });
+app.post('/', async (req, res, next) => {
+    const { searchTerm } = req.body;
+    const response = await axios.get(`https://api.deezer.com/search?q=artist:"${searchTerm}"`);
 
-    return res.status(200).json({
-        message: "Success",
+    const { data, ...rest } = response.data;
+    console.log(data);
+    let artistIds = data.map(data => data.artist.id);
+    artistIds = [...new Set(artistIds)];
+
+    let artists = artistIds.map(async artistId => {
+        const response = await axios.get(`https://api.deezer.com/artist/${artistId}`);
+        return response.data;
     })
+    artists = await Promise.all(artists);
+
+    let albumIds = data.map(data => data.album.id);
+    albumIds = [...new Set(albumIds)];
+
+    let albums = albumIds.map(async albumId => {
+        const response = await axios.get(`https://api.deezer.com/album/${albumId}`);
+        return response.data;
+    })
+    albums = await Promise.all(albums);
+
+    let obj = {};
+
+    return res.status(200).json({ artists, ...rest, albums, tracks: data })
+
 });
 
-app.listen(8080, () => { console.log("App running on port 8080"); })
+app.use("*", (req, res) =>
+    res.status(404).send({
+        message: "Ooops route does not exist!",
+    })
+);
+app.listen(port, () => {
+    console.log(`Server is running on PORT ${port}....`);
+});
+
+module.exports = app;

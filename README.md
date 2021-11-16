@@ -1,93 +1,70 @@
-# DVT Assessment - Deezer Angular Application
+# Getting Started with Create React App
 
-### This is a boilerplate project for DVT Angular Assessment - Deezer Application. 
-<br/>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-> This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+## Available Scripts
 
-<br/>
+In the project directory, you can run:
 
-## Deezer is an internet-based music streaming service.  You are required to implement an Angular app to explore its database.
+### `npm start`
 
-<br />
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-1.  Users should be able to search for artists.  For every artist found show the artist's picture and the number of fans they have.  On bigger screens, with more available space, also include the total number of albums.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-<br />
+### `npm test`
 
-2.  Clicking/tapping the artist must allow users to see basic information about them, like its total number of fans.  Also show its top 5 tracks along with a list of all their albums.  For every album include the year in which it was released.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<br />
+### `npm run build`
 
-Be sure to follow best practices and to demonstrate the skills you've learnt to develop a modern web app.  Keep in mind that our team intends to add more features to your code and that they expect this to be quick and easy for them to do.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-<br />
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-We encourage you to add more assets as necessary and to enhance content with colour and imagery, wherever it makes sense, so users may enjoy using your app. This is equally important to us when reviewing your assessment.
- 
-<br />
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Please make sure that all unit tests and linting are passing as this can affect your marking.
+### `npm run eject`
 
-<br />
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-You can also deploy your application to a free hosting service such as Heroku or Github Page using CI/CD pipeline as bonus point.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<br />
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## IMPORTANT
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Most browsers enforce the same-origin restriction which may prevent HTTP calls to the Deezer API.  To circumvent this problem and to enable CORS (Cross-origin resource sharing) in your app, you can use this two solutions:
+## Learn More
 
-<br />
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Simply forward requests through a public CORS proxy that adds the Access-Control-Allow-Origin header to any OPTIONS pre-flight response.  For example, when using the https://cors-anywhere.herokuapp.com/ proxy, then a call intended to https://api.deezer.com/search?q=eminem must become a call to https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=eminem in your code. 
-Do not forget to activate Heroku permission to use the proxy by clicking on the button Request temporary access to the demo server from this URL https://cors-anywhere.herokuapp.com/corsdemo
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-<br />
+### Code Splitting
 
-- You can also use the Angular proxy configuration to circumvent CORS issue https://angular.io/guide/build#proxying-to-a-backend-server.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-<br /> 
+### Analyzing the Bundle Size
 
-> The project was bootstrapped with Angular CLI 11.2.8 using this command: `ng new musicdb-app`
- 
-<br />
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-You are also welcome to create a fresh Angular Project from your local environment, publish it on GitHub and share the link with us.
+### Making a Progressive Web App
 
-<br />
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Deezer API reference
-https://developers.deezer.com/api
+### Advanced Configuration
 
-<br />
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-EXAMPLE
+### Deployment
 
-Below are some illustrations to help inspire your implementation.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-<br />
+### `npm run build` fails to minify
 
-Artists view [Desktop]
-
-https://raw.githubusercontent.com/DVT/musicdb-app-angular/master/wireframes/artist-web-view.png
-
-<br />
-
-Artists view [Mobile]
-
-https://raw.githubusercontent.com/DVT/musicdb-app-angular/master/wireframes/artist-mobile-view.png
-
-<br />
-
-
-Artist details view [Desktop]
-
-https://raw.githubusercontent.com/DVT/musicdb-app-angular/master/wireframes/artist-details-web-view.png
-
-<br />
-
-Artist details view [Mobile]
-
-https://raw.githubusercontent.com/DVT/musicdb-app-angular/master/wireframes/artist-details-mobile.PNG
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

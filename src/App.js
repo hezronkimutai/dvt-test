@@ -11,6 +11,9 @@ const App = (props) => {
 
   return (
     <div className="App">
+      <nav className="nav-bar">
+        <h1>Deezer</h1>
+      </nav>
       <Router >
         <Routes>
           <Route path="/" exact element={<Artists {...props} />} />

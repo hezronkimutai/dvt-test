@@ -7,15 +7,72 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+.artist-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 20px auto;
 }
 
 .card {
   width: 20%;
-  max-width: 300px;
-  margin: auto;
+  max-width: 320px;
+  min-width: 250px;
+  margin: 10px 5px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: left;
+  padding: 0;
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  border-radius: 3px;
+}
+.card-text {
+  padding: 2px 5px;
 }
 img {
   width: 100%;
+}
+.nav-bar {
+  text-align: center;
+  margin: 10px auto;
+}
+.search-box {
+  width: min-content;
+  margin: auto 5px;
+  display: flex;
+  flex-direction: row;
+}
+.search-box-button {
+  margin: auto 3px;
+}
+.search-box-input {
+}
+
+.albums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+  position: relative;
+}
+
+.artist-details {
+  background-color: black;
+  opacity: 0.5;
+  color: #fff;
+  margin-top: -135px;
+}
+@media screen and (max-width: 700px) {
+  .card {
+    margin: 10px auto;
+  }
+  .search-box {
+    margin: auto;
+  }
 }

@@ -9,13 +9,21 @@ function Artist() {
   const handleGoBack = () => {
     navigate("/");
   }
+  const tracks = state.tracks.slice(0, 5);
 
   return (
     <>
       <button onClick={handleGoBack}>Back</button>
-      <div className="card-container">
-        <div><img style={{ maxWidth: 320 }} src={state.picture_xl} /></div>
-        <ol>{state.tracks.map(track => (
+      <div className="artist-card-container">
+        <div>
+          <img style={{ maxWidth: 320 }} src={state.picture_xl} />
+          <section className="artist-details">
+            <h3>{state.name}</h3>
+            <h3>{state.nb_fan} Fans</h3>
+            <h3>{state.nb_album} Albums</h3>
+          </section>
+        </div>
+        <ol>{tracks.map(track => (
           <li>
             <span>{track.title}</span>
             <span>{track.rank}</span>
@@ -23,12 +31,13 @@ function Artist() {
         )}</ol>
       </div>
       <h2>Albums</h2>
-      <div>{state.tracks.map(track => (
-        <div>
-          <h3>{track.album.title}</h3>
-          <img style={{ maxWidth: 320 }} src={track.album.cover_xl} />
-        </div>)
-      )}</div>
+      <div className="albums">
+        {tracks.map(track => (
+          <div className="card">
+            <h3>{track.album.title}</h3>
+            <img style={{ maxWidth: 320 }} src={track.album.cover_xl} />
+          </div>)
+        )}</div>
     </>
   );
 }

@@ -10,12 +10,14 @@ import './App.css';
 const App = (props) => {
 
   return (
-    <Router >
-      <Routes>
-        <Route path="/" exact element={<Artists {...props} />} />
-        <Route exact path="/:artistId" element={<Artist {...props} />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Router >
+        <Routes>
+          <Route path="/" exact element={<Artists {...props} />} />
+          <Route exact path="/:artistId" element={<Artist {...props} />} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 

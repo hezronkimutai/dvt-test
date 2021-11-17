@@ -21,14 +21,14 @@ function Artist() {
             <span>{track.rank}</span>
           </li>)
         )}</ol>
-        <h2>Albums</h2>
-        <div>{state.tracks.map(track => (
-          <div>
-            <span>{track.album.title}</span>
-            <img style={{ maxWidth: 320 }} src={track.album.cover_xl} />
-          </div>)
-        )}</div>
       </div>
+      <h2>Albums</h2>
+      <div>{state.tracks.map(track => (
+        <div>
+          <h3>{track.album.title}</h3>
+          <img style={{ maxWidth: 320 }} src={track.album.cover_xl} />
+        </div>)
+      )}</div>
     </>
   );
 }

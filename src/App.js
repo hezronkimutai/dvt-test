@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Artist from './components/Artist';
 import Artists from './components/Artists'
@@ -7,18 +7,14 @@ import './App.css';
 
 
 
-const App = () => {
+const App = (props) => {
+
   return (
-
-    <Router>
-      <Switch>
-
-        <Route path="/" component={Artists} />
-        {/* <Route exact path="/:artistId" component={Artist} />
-        <Route exact path="/" component={NavBar} />
-        <Route path="/page-1" component={PageOne} />
-        <Route path="/page-2" component={PageTwo} /> */}
-      </Switch>
+    <Router >
+      <Routes>
+        <Route path="/" exact element={<Artists {...props} />} />
+        <Route exact path="/:artistId" element={<Artist {...props} />} />
+      </Routes>
     </Router>
   )
 }

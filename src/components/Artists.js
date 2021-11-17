@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const url = 'http://localhost:8080/';
 
-function App() {
-
-  console.log("####################");
+function Artists() {
+  const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState({});
@@ -25,11 +26,11 @@ function App() {
   }
 
   const handleGetDetails = (e, artist) => {
-    history.push(`/${artist.id}`, artist);
+    navigate(`/${artist.id}`, { state: artist });
   }
 
   return (
-    <div className="App">
+    <>
       <input type='text' onChange={handleChange} />
       <button onClick={handleSearch}>Click</button>
       <div className="card-container">
@@ -39,11 +40,10 @@ function App() {
             <p>{artist.nb_fan}</p>
             <p>{artist.nb_album}</p>
           </button>))}
-
       </div>
-    </div>
+    </>
   );
 }
 
 
-export default App;
+export default Artists;

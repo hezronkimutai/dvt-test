@@ -1,46 +1,36 @@
-import axios from 'axios';
-import { useState } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
 
-const url = 'http://localhost:8080/';
+function Artist() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-function App({ history }) {
+  const { state } = location;
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [data, setData] = useState({});
-
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setSearchTerm(value);
-  }
-
-  const fetchData = (search) => {
-    axios.post(url, { searchTerm: search }).then(res => {
-      setData(res.data);
-    });
-  }
-  const handleSearch = () => {
-    fetchData(searchTerm);
-  }
-
-  const handleGetDetails = (e, artist) => {
-    fetchData(artist.name);
+  const handleGoBack = () => {
+    navigate("/");
   }
 
   return (
-    <div className="App">
-      <input type='text' onChange={handleChange} />
-      <button onClick={handleSearch}>Click</button>
+    <>
+      <button onClick={handleGoBack}>Back</button>
       <div className="card-container">
-        {data.artists && data.artists.map(artist => (
-          <button onClick={(e) => handleGetDetails(e, artist)} className="card">
-            <img src={artist.picture} />
-            <p>{artist.nb_fan}</p>
-            <p>{artist.nb_album}</p>
-          </button>))}
-
+        <div><img style={{ maxWidth: 320 }} src={state.picture_xl} /></div>
+        <ol>{state.tracks.map(track => (
+          <li>
+            <span>{track.title}</span>
+            <span>{track.rank}</span>
+          </li>)
+        )}</ol>
+        <h2>Albums</h2>
+        <div>{state.tracks.map(track => (
+          <div>
+            <span>{track.album.title}</span>
+            <img style={{ maxWidth: 320 }} src={track.album.cover_xl} />
+          </div>)
+        )}</div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default App;
+export default Artist;

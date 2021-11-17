@@ -37,9 +37,15 @@ app.post('/', async (req, res, next) => {
     })
     albums = await Promise.all(albums);
 
-    let obj = {};
+    artists = artists.map(async artist => {
+        let tracks = await axios.get(`${artist.tracklist}`);
+        tracks = tracks.data.data;
+        return { ...artist, tracks }
+    })
 
-    return res.status(200).json({ artists, ...rest, albums, tracks: data })
+    artists = await Promise.all(artists);
+
+    return res.status(200).json({ artists, ...rest, albums })
 
 });
 

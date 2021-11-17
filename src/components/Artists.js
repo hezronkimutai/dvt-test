@@ -3,7 +3,7 @@ import { useState } from 'react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const url = 'http://localhost:8080/';
+const url = 'https://shrouded-hamlet-74185.herokuapp.com/';
 
 function Artists() {
   const navigate = useNavigate();

@@ -1,0 +1,39 @@
+version: 0.2
+
+phases: 
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - cd backend 
+      - npm install
+      - cd ..
+      - cd frontend
+      - npm install
+      - cd ..
+  build:
+    commands:
+      - echo "Building and zipping..."
+      - cd frontend
+      - npm run build
+      - cd build
+      - zip -r9 build.zip .
+      - aws s3 cp build.zip s3://beevertech/
+
+      - cd ..
+      - cd ..
+
+  #     - cd dynamoDb
+  #     - zip -r9 dynamoDb.zip .
+  #     - cd ..
+  # post_build:
+  #   commands:
+  #     - echo "Uploading to lambda..."
+        # - aws s3 cp large_test_file s3://DOC-EXAMPLE-BUCKET/
+  #     - aws lambda update-function-code --function-name s3Upload --zip-file fileb://s3Upload/s3Upload.zip
+  #     - aws lambda update-function-code --function-name s3ApiGateway --zip-file fileb://dynamoDb/dynamoDb.zip
+
+artifacts:
+  files:
+    - "**/**"
+  discard-paths: no
+  base-directory: backend

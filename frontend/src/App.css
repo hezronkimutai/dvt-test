@@ -1,0 +1,147 @@
+.App {
+  width: 80%;
+  margin: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+.artist-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.card {
+  width: 20%;
+  max-width: 320px;
+  min-width: 250px;
+  margin: 10px 5px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: left;
+  padding: 0;
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.card-text {
+  padding: 2px 5px;
+}
+img {
+  width: 100%;
+}
+.nav-bar {
+  text-align: center;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.search-box {
+  width: min-content;
+  margin: auto 5px;
+  display: flex;
+  flex-direction: row;
+}
+.search-box-button {
+  margin: auto 3px;
+  border: none;
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  padding: 5px;
+  cursor: pointer;
+}
+.search-box-input {
+  border: none;
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.albums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+  position: relative;
+}
+
+.artist-details {
+  background-color: black;
+  opacity: 0.8;
+  color: #fff;
+  margin: auto;
+  margin-top: -190px;
+  padding: 20px;
+  width: max-content;
+  border-radius: 5px;
+}
+.potrait {
+  width: 40%;
+}
+.potrait-img {
+  max-height: 500px;
+  object-fit: cover;
+}
+.tracks {
+  width: 40%;
+  text-align: left;
+}
+.back-btn {
+  text-align: left !important;
+}
+.title {
+  font-size: 40px;
+  margin-top: 40px;
+  width: 100%;
+}
+.logo {
+  cursor: pointer;
+}
+.track {
+  margin: 15px auto;
+  padding: 5px;
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.329);
+  border-radius: 3px;
+}
+.album-title {
+  padding: 5px 10px;
+}
+@media screen and (max-width: 700px) {
+  .card {
+    margin: 10px auto;
+  }
+  .search-box {
+    margin: auto;
+  }
+  .potrait {
+    width: 300px;
+    margin: auto;
+  }
+  .tracks {
+    width: 300px;
+    margin: auto;
+  }
+  .back-btn {
+    text-align: left !important;
+  }
+  .nav-bar {
+    flex-direction: column;
+  }
+  .title {
+    text-align: center;
+  }
+}

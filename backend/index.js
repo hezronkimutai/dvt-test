@@ -18,7 +18,6 @@ app.post('/', async (req, res, next) => {
     const response = await axios.get(`https://api.deezer.com/search?q=artist:"${searchTerm}"`);
 
     const { data, ...rest } = response.data;
-    console.log(data);
     let artistIds = data.map(data => data.artist.id);
     artistIds = [...new Set(artistIds)];
 
@@ -51,7 +50,7 @@ app.post('/', async (req, res, next) => {
 
 app.use("*", (req, res) =>
     res.status(404).send({
-        message: "Ooops route does not exist!",
+        message: "route does not exist!",
     })
 );
 app.listen(port, () => {
